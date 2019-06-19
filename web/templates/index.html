@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}
+David
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Web-crawler</a></li>
+                <li><a href="http://127.0.0.1:5000/realtime">实时热点</a></li>
+                <li><a href="http://127.0.0.1:5000/7-day">七天热点</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>百度搜索风云榜</h1>
+    <br>
+    <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题&nbsp;&nbsp;&nbsp;&nbsp;</tr>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;热&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度</span>
+    <br><br>
+    {% for i in range(length)%}
+    <a href={{hreflist[i]}}> {{i+1}}. {{namelist[i]}}</a>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;{{hit[i]}}</span>
+    <br></br>
+    {% endfor %}
+</div>
+
+{% endblock %}
