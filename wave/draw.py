@@ -76,7 +76,7 @@ class draw():
         self.alpha3 = 240
 
     def set_position(self, x, y):
-        self.life = 100
+        self.life = 150
         self.x = x - self.size/2
         self.y = y - self.size/2
         self.x2 = x - self.size2/2

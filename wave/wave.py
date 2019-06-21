@@ -22,7 +22,6 @@ screen = pygame.display.get_surface()
 clock = pygame.time.Clock()
 
 
-
 def run_mouse():
     screen.fill(BACKGROUNDCOLOR)
     image_array = []
@@ -30,7 +29,7 @@ def run_mouse():
     random_text = pygame.image.load('python/wave/image/random.png')
     for i in range(10):
         image_array.append(draw())
-    image = pygame.image.load('python/wave/image/circle3.png')
+
     while True:
         clock.tick(60)
         screen.blit(mouse_text, (800, 800))
@@ -51,18 +50,18 @@ def run_mouse():
 
         for index, object in enumerate(image_array):
 
-            if object.life > 80:
+            if object.life > 130:
                 object.tscale(3)
                 screen.blit(object.image, (object.x, object.y))
                 object.life -= 1
                 continue
 
-            elif object.life > 70:
+            elif object.life > 120:
                 object.tscale(2)
                 screen.blit(object.image, (object.x, object.y))
                 object.life -= 1
                 continue
-            elif object.life > 45:
+            elif object.life > 95:
                 object.tscale(1)
                 object.tscale2(3)
                 screen.blit(object.image, (object.x, object.y))
@@ -70,7 +69,7 @@ def run_mouse():
                 object.life -= 1
                 continue
 
-            elif object.life > 40:
+            elif object.life > 90:
                 object.tscale(1)
                 object.tscale2(2)
                 object.tscale3(3)
@@ -127,48 +126,90 @@ def run_random():
                     break
 
         for index, object in enumerate(image_array):
+            if(object.y < 500):
+                if object.life > 130:
+                    object.tscale(3)
+                    screen.blit(object.image, (object.x, object.y))
+                    object.life -= 1
+                    continue
 
-            if object.life > 80:
-                object.tscale(3)
-                screen.blit(object.image, (object.x, object.y))
-                object.life -= 1
-                continue
+                elif object.life > 120:
+                    object.tscale(2)
+                    screen.blit(object.image, (object.x, object.y))
+                    object.life -= 1
+                    continue
+                elif object.life > 95:
+                    object.tscale(1)
+                    object.tscale2(3)
+                    screen.blit(object.image, (object.x, object.y))
+                    screen.blit(object.image2, (object.x2, object.y2))
+                    object.life -= 1
+                    continue
 
-            elif object.life > 70:
-                object.tscale(2)
-                screen.blit(object.image, (object.x, object.y))
-                object.life -= 1
-                continue
-            elif object.life > 45:
-                object.tscale(1)
-                object.tscale2(3)
-                screen.blit(object.image, (object.x, object.y))
-                screen.blit(object.image2, (object.x2, object.y2))
-                object.life -= 1
-                continue
+                elif object.life > 90:
+                    object.tscale(1)
+                    object.tscale2(2)
+                    object.tscale3(3)
+                    screen.blit(object.image, (object.x, object.y))
+                    screen.blit(object.image2, (object.x2, object.y2))
+                    screen.blit(object.image3, (object.x3, object.y3))
+                    object.life -= 1
+                    continue
 
-            elif object.life > 40:
-                object.tscale(1)
-                object.tscale2(2)
-                object.tscale3(3)
-                screen.blit(object.image, (object.x, object.y))
-                screen.blit(object.image2, (object.x2, object.y2))
-                screen.blit(object.image3, (object.x3, object.y3))
-                object.life -= 1
-                continue
+                elif object.life > 1:
+                    object.tscale(1)
+                    object.tscale3(2)
+                    object.tscale2(1)
+                    screen.blit(object.image, (object.x, object.y))
+                    screen.blit(object.image2, (object.x2, object.y2))
+                    screen.blit(object.image3, (object.x3, object.y3))
+                    object.life -= 1
+                    continue
 
-            elif object.life > 1:
-                object.tscale(1)
-                object.tscale3(2)
-                object.tscale2(1)
-                screen.blit(object.image, (object.x, object.y))
-                screen.blit(object.image2, (object.x2, object.y2))
-                screen.blit(object.image3, (object.x3, object.y3))
-                object.life -= 1
-                continue
+                if object.life == 1:
+                    object.reset()
+            else:
+                if object.life > 130:
+                    object.tscale(3)
+                    screen.blit(object.image, (object.x, object.y))
+                    object.life -= 1
+                    continue
 
-            if object.life == 1:
-                object.reset()
+                elif object.life > 120:
+                    object.tscale(2)
+                    screen.blit(object.image, (object.x, object.y))
+                    object.life -= 1
+                    continue
+                elif object.life > 95:
+                    object.tscale(1)
+                    object.tscale2(3)
+                    screen.blit(object.image, (object.x, object.y))
+                    # screen.blit(object.image2, (object.x2, object.y2))
+                    object.life -= 1
+                    continue
+
+                elif object.life > 90:
+                    object.tscale(1)
+                    object.tscale2(2)
+                    object.tscale3(3)
+                    screen.blit(object.image, (object.x, object.y))
+                    # screen.blit(object.image2, (object.x2, object.y2))
+                    # screen.blit(object.image3, (object.x3, object.y3))
+                    object.life -= 1
+                    continue
+
+                elif object.life > 1:
+                    object.tscale(1)
+                    object.tscale3(2)
+                    object.tscale2(1)
+                    screen.blit(object.image, (object.x, object.y))
+                    # screen.blit(object.image2, (object.x2, object.y2))
+                    # screen.blit(object.image3, (object.x3, object.y3))
+                    object.life -= 1
+                    continue
+
+                if object.life == 1:
+                    object.reset()
 
         pygame.display.update()
         screen.fill(BACKGROUNDCOLOR)
